@@ -2,7 +2,7 @@ resource "google_container_cluster" "private-cluster" {
   name     = "private-cluster"
   location = "us-central1-a"
   remove_default_node_pool = true
-  initial_node_count       = 3
+  initial_node_count       = 1
   network                  = google_compute_network.project-vpc.id
   subnetwork               = google_compute_subnetwork.restricted-subnet.id
 
@@ -32,11 +32,11 @@ resource "google_container_node_pool" "nodepool" {
   name       = "nodepool"
   location   = "us-central1-a"
   cluster    = google_container_cluster.private-cluster.id
-  node_count = 1
+  node_count = 3
 
   node_config {
     preemptible  = true
-    machine_type = "e2-medium"
+    machine_type = "e2-standard-2"
     service_account = google_service_account.project-service-account.email
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"

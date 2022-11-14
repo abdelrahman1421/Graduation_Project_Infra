@@ -10,3 +10,16 @@ resource "google_project_iam_binding" "project-service-account-iam" {
     "serviceAccount:${google_service_account.project-service-account.email}"
   ]
 }
+
+resource "google_service_account" "vm-service-account" {
+  account_id = "vm-service-account"
+  project = "abde-367812"
+}
+
+resource "google_project_iam_binding" "vm-service-account-iam" {
+  project = "abde-367812"
+  role    = "roles/container.admin"
+  members = [
+    "serviceAccount:${google_service_account.project-service-account.email}"
+  ]
+}
