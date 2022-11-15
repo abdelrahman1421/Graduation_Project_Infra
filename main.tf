@@ -29,7 +29,7 @@ module "service_account" {
     project = var.project
     gke_role = var.gke_role
     service_account_vm_name = var.service_account_vm_name
-    vm_role = var.vm_role
+    vm_role = var.vm_role 
 }
 
 module "vm" {
