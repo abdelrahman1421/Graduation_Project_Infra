@@ -54,7 +54,7 @@ variable "node_pool_name" {
 }
 
 variable "node_pool_location" {
-    type = bool
+    type = string
 }
 
 variable "node_count" {
@@ -66,7 +66,7 @@ variable "node_config_preemptible" {
 }
 
 variable "node_config_machine_type" {
-    type = bool
+    type = string
 }
 
 variable "node_config_service_account" {

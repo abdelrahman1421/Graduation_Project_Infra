@@ -35,8 +35,8 @@ resource "google_container_node_pool" "nodepool" {
   node_count = var.node_count
 
   node_config {
-    preemptible     = var.preemptible
-    machine_type    = var.machine_type
+    preemptible     = var.node_config_preemptible
+    machine_type    = var.node_config_machine_type
     service_account = var.node_config_service_account
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
