@@ -120,12 +120,6 @@ variable "initial_node_count" {
     type = number
 }
 
-
-
-variable "master_authorized_networks_cidr_blocks" {
-    type = string
-}
-
 variable "master_authorized_networks_cidr_blocks_display_name" {
     type = string
 }

@@ -13,7 +13,7 @@ variable "remove_default_node_pool" {
 variable "initial_node_count" {
     type = number
 }
---
+
 variable "vpc_network" {
     type = string
 }

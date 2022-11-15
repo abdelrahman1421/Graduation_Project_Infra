@@ -43,3 +43,28 @@ module "vm" {
     service_account_email = module.service_account.vm_service_account
     
 }
+
+module "gke" {
+    source = "./gke"
+    cluster_name = var.cluster_name
+    location = var.location
+    remove_default_node_pool = var.remove_default_node_pool
+    initial_node_count = var.initial_node_count
+    vpc_network = module.network.vpc_id
+    vpc_subnetwork = module.network.restricted_subnet_id
+    master_authorized_networks_cidr_blocks = var.ip_cidr_range_mang
+    master_authorized_networks_cidr_blocks_display_name = var.master_authorized_networks_cidr_blocks_display_name
+    cluster_ipv4_cidr_block = var.cluster_ipv4_cidr_block
+    services_ipv4_cidr_block = var.services_ipv4_cidr_block
+    enable_private_nodes = var.enable_private_nodes
+    enable_private_endpoint = var.enable_private_endpoint
+    master_ipv4_cidr_block = var.master_ipv4_cidr_block
+    node_pool_name = var.node_pool_name
+    node_pool_location = var.node_pool_location
+    node_count = var.node_count
+    node_config_preemptible = var.node_config_preemptible
+    node_config_machine_type = var.node_config_machine_type
+    node_config_service_account = module.service_account.gke_service_account
+
+
+}
