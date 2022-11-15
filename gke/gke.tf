@@ -13,12 +13,12 @@ resource "google_container_cluster" "private-cluster" {
       display_name = var.master_authorized_networks_cidr_blocks_display_name
   }
     }
-  }
+  
 
   ip_allocation_policy {
     cluster_ipv4_cidr_block  = var.cluster_ipv4_cidr_block
     services_ipv4_cidr_block = var.services_ipv4_cidr_block
-
+  }
 
   private_cluster_config {
     enable_private_nodes    = var.enable_private_nodes
